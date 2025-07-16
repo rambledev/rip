@@ -10,13 +10,13 @@ export default function FuneralPage() {
 
   // กำหนดการงานศพ
   const schedule = [
-    { time: '16 - 17 กรกฎาคม พ.ศ. 2568', activity: 'พระสงฆ์สวดพระอภิธรรม' },
-    { time: 'เวลา 18.00 น.', activity: 'ฐานายกตาหารพฤสคเต็มพระสงฆ์' },
-    { time: '18 เสาร์ ที่ 19 กรกฎาคม พ.ศ. 2568', activity: 'พระสงฆ์สวดพระอภิธรรม' },
-    { time: 'เวลา 10.10 น.', activity: 'ฐานายกตาหารพฤสคเต็มพระสงฆ์' },
-    { time: 'เวลา 17.00 น.', activity: 'เจอหยิดพิพิธีใปสุสชิเบิงหึ่งสีดก' },
-    { time: 'เวลา 18.00 น.', activity: 'พระสงฆ์สวดพระอภิธรรมภิษุม์ 1 กิดั่ม' },
-    { time: 'เวลา 18.10 น.', activity: 'ประยูมพฤษิช' }
+    { time: '16 - 17 กรกฎาคม พ.ศ. 2568', activity: '' },
+    { time: 'เวลา 18.00 น.', activity: 'พระสงฆ์สวดพระอภิธรรม' },
+    { time: '18 เสาร์ ที่ 19 กรกฎาคม พ.ศ. 2568', activity: '' },
+    { time: 'เวลา 10.10 น.', activity: 'ถวายภัตตาหารเพลแด่พระสงฆ์' },
+    { time: 'เวลา 17.00 น.', activity: 'เคลื่อนศพไปสู่เมรุบ้านสีสุก' },
+    { time: 'เวลา 18.00 น.', activity: 'พระสงฆ์แสดงธรรมเทศนา 1 กัณฑ์' },
+    { time: 'เวลา 18.10 น.', activity: 'ประชุมเพลิง' }
   ]
 
   const hostList = [
@@ -208,9 +208,19 @@ export default function FuneralPage() {
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors"
                   >
-                    16°19&apos;22.7&quot;N 103°29&apos;04.0&quot;E
+                    16°19&apos;22.7&quot;N 103°29&apos;04.0&quot;E (คลิกเพื่อนำทาง)
                   </a>
                   
+                  </span>
+                  <span>qr code แผนที่นำทาง:
+                    <Image
+                            src="/qr-map.jpg"
+                            alt="แผนที่หมู่บ้าน - บ้านคอมวง"
+                            width={100}
+                            height={100}
+                            className="object-contain bg-white"
+                            priority
+                          />
                   </span>
                 </div>
                 
