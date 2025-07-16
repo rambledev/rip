@@ -10,14 +10,13 @@ export default function FuneralPage() {
 
   // กำหนดการงานศพ
   const schedule = [
-    { time: '06:00 - 08:00', activity: 'เตรียมสถานที่ จัดดอกไม้' },
-    { time: '08:00 - 09:00', activity: 'รับแขกผู้มาร่วมงาน' },
-    { time: '09:00 - 11:00', activity: 'พิธีสวดอภิธรรม์ รอบเช้า' },
-    { time: '11:00 - 12:00', activity: 'พิธีถวายภัตตาหาร' },
-    { time: '12:00 - 13:00', activity: 'รับประทานอาหารกลางวัน' },
-    { time: '13:00 - 15:00', activity: 'พิธีสวดอภิธรรม์ รอบบ่าย' },
-    { time: '15:00 - 16:00', activity: 'พิธีรดน้ำศพ / ลาศพ' },
-    { time: '16:00 - 17:00', activity: 'ส่งขบวนไปยังสุสาน' }
+    { time: '16 - 17 กรกฎาคม พ.ศ. 2568', activity: 'พระสงฆ์สวดพระอภิธรรม' },
+    { time: 'เวลา 18.00 น.', activity: 'ฐานายกตาหารพฤสคเต็มพระสงฆ์' },
+    { time: '18 เสาร์ ที่ 19 กรกฎาคม พ.ศ. 2568', activity: 'พระสงฆ์สวดพระอภิธรรม' },
+    { time: 'เวลา 10.10 น.', activity: 'ฐานายกตาหารพฤสคเต็มพระสงฆ์' },
+    { time: 'เวลา 17.00 น.', activity: 'เจอหยิดพิพิธีใปสุสชิเบิงหึ่งสีดก' },
+    { time: 'เวลา 18.00 น.', activity: 'พระสงฆ์สวดพระอภิธรรมภิษุม์ 1 กิดั่ม' },
+    { time: 'เวลา 18.10 น.', activity: 'ประยูมพฤษิช' }
   ]
 
   const hostList = [
@@ -72,163 +71,119 @@ export default function FuneralPage() {
           
           {/* Left Column - Maps */}
           <div className="lg:col-span-2 space-y-6">
+            
+            {/* Village Map */}
             <div className="bg-white rounded-lg shadow-md p-6">
               <h2 className="text-2xl font-bold mb-4 text-gray-800 flex items-center">
                 <span className="mr-2">📍</span>
-                ที่ตั้งสถานที่
+                แผนที่หมู่บ้าน
               </h2>
               
-              {/* Map Toggle */}
-              <div className="flex mb-4 bg-gray-100 rounded-lg p-1">
-                <button
-                  onClick={() => setSelectedMap('village')}
-                  className={`flex-1 py-2 px-4 rounded-md transition-colors text-sm ${
-                    selectedMap === 'village' 
-                      ? 'bg-white shadow-sm text-gray-800' 
-                      : 'text-gray-600 hover:text-gray-800'
-                  }`}
-                >
-                  แผนที่หมู่บ้าน
-                </button>
-                <button
-                  onClick={() => setSelectedMap('google')}
-                  className={`flex-1 py-2 px-4 rounded-md transition-colors text-sm ${
-                    selectedMap === 'google' 
-                      ? 'bg-white shadow-sm text-gray-800' 
-                      : 'text-gray-600 hover:text-gray-800'
-                  }`}
-                >
-                  Google Maps
-                </button>
-                <button
-                  onClick={() => setSelectedMap('streetview')}
-                  className={`flex-1 py-2 px-4 rounded-md transition-colors text-sm ${
-                    selectedMap === 'streetview' 
-                      ? 'bg-white shadow-sm text-gray-800' 
-                      : 'text-gray-600 hover:text-gray-800'
-                  }`}
-                >
-                  ภาพถนน
-                </button>
-              </div>
-
-              {/* Map Display */}
               <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-                {selectedMap === 'village' ? (
-                  <div className="space-y-4">
-                    {!villageMapUrl ? (
-                      <div className="relative">
-                        {/* แสดงภาพแผนที่จากไฟล์ที่อัปโหลด */}
-                        <div className="h-96 bg-white rounded-lg overflow-hidden border shadow-lg">
-                          <div className="w-full h-full relative">
-                            <Image
-                              src="/map.png"
-                              alt="แผนที่หมู่บ้าน - บ้านคอมวง"
-                              fill
-                              className="object-contain bg-white"
-                              priority
-                            />
-                            {/* ข้อมูลสถานที่จัดงาน - วางทับบนภาพ */}
-                            <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm p-4 rounded-lg shadow-xl border-2 border-red-500 max-w-xs">
-                              <div className="text-red-600 font-bold text-lg mb-2 text-center">
-                                🏠 สถานที่จัดงานศพ
-                              </div>
-                              <div className="text-gray-800 font-bold text-base">
-                                คุณยายบุญชู ภานุรักษ์
-                              </div>
-                              <div className="text-sm text-gray-600 mt-2 space-y-1">
-                                <p><span className="font-semibold">📍</span> 125 หมู่ 8 บ้านคอมวง</p>
-                                <p>ต.โนนศิลาเลิง อ.ชนบท</p>
-                                <p>จ.กาฬสินธุ์ 46130</p>
-                                <p className="text-blue-600 font-semibold">📞 081-XXX-XXXX</p>
-                              </div>
+                <div className="space-y-4">
+                  {!villageMapUrl ? (
+                    <div className="relative">
+                      {/* แสดงภาพแผนที่จากไฟล์ที่อัปโหลด */}
+                      <div className="h-96 bg-white rounded-lg overflow-hidden border shadow-lg">
+                        <div className="w-full h-full relative">
+                          <Image
+                            src="/map.png"
+                            alt="แผนที่หมู่บ้าน - บ้านคอมวง"
+                            fill
+                            className="object-contain bg-white"
+                            priority
+                          />
+                          {/* ข้อมูลสถานที่จัดงาน - วางทับบนภาพ */}
+                          <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm p-4 rounded-lg shadow-xl border-2 border-red-500 max-w-xs">
+                            <div className="text-red-600 font-bold text-lg mb-2 text-center">
+                              🏠 สถานที่จัดงานศพ
+                            </div>
+                            <div className="text-gray-800 font-bold text-base">
+                              คุณยายบุญชู ภานุรักษ์
+                            </div>
+                            <div className="text-sm text-gray-600 mt-2 space-y-1">
+                              <p><span className="font-semibold">📍</span> 125 หมู่ 8 บ้านคอมวง</p>
+                              <p>ต.โนนศิลาเลิง อ.ชนบท</p>
+                              <p>จ.กาฬสินธุ์ 46130</p>
+                              <p className="text-blue-600 font-semibold">📞 081-XXX-XXXX</p>
                             </div>
                           </div>
                         </div>
-                        <div className="mt-2 text-center">
-                          <label 
-                            htmlFor="map-upload" 
-                            className="inline-block bg-blue-600 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-700 transition-colors text-sm"
-                          >
-                            📤 เปลี่ยนแผนที่หมู่บ้าน
-                          </label>
-                          <input
-                            id="map-upload"
-                            type="file"
-                            accept="image/*"
-                            onChange={handleImageUpload}
-                            className="hidden"
-                          />
-                        </div>
                       </div>
-                    ) : (
-                      <div className="relative">
-                        <div className="relative h-96 rounded-lg overflow-hidden">
-                          <Image
-                            src={villageMapUrl}
-                            alt="แผนที่หมู่บ้าน"
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                        <button
-                          onClick={() => setVillageMapUrl('')}
-                          className="absolute top-2 right-2 bg-red-600 text-white w-8 h-8 rounded-full hover:bg-red-700 transition-colors flex items-center justify-center"
+                      <div className="mt-2 text-center">
+                        <label 
+                          htmlFor="map-upload" 
+                          className="inline-block bg-blue-600 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-700 transition-colors text-sm"
                         >
-                          ✕
-                        </button>
+                          📤 เปลี่ยนแผนที่หมู่บ้าน
+                        </label>
+                        <input
+                          id="map-upload"
+                          type="file"
+                          accept="image/*"
+                          onChange={handleImageUpload}
+                          className="hidden"
+                        />
                       </div>
-                    )}
-                    
-                    {/* จุดสำคัญในแผนที่ */}
-                    <div className="bg-gray-50 rounded-lg p-4">
-                      <h4 className="font-semibold text-gray-800 mb-2 flex items-center">
-                        <span className="mr-2">📍</span>
-                        จุดสำคัญในหมู่บ้าน
-                      </h4>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        <li>• บ้านคอมวง (สถานที่จัดงาน) 📍</li>
-                        <li>• บ้านสีสุก (ทางเข้าหมู่บ้าน)</li>
-                        <li>• บ้านนาสีมวล (ทางออกหมู่บ้าน)</li>
-                        <li>• วัดบ้านสีสุก (วัดประจำหมู่บ้าน)</li>
-                        <li>• ที่จอดรถ (บริเวณบ้านคอมวง)</li>
-                        <li>• ร้านค้า/ร้านอาหาร (ใกล้วัด)</li>
-                      </ul>
                     </div>
-                  </div>
-                ) : selectedMap === 'google' ? (
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d967.8!2d103.484449!3d16.322977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z16Phn4Tn4Z6G4Z-A4Z-E4Z6Z4Z6K4Z6c4Z-N4Z6G4Z6K4Z6Z4Z-A4Z6B4Z-E4Z6Z!5e0!3m2!1sen!2sth!4v1000000000000!5m2!1sen!2sth"
-                    width="100%"
-                    height="384"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Google Maps - สถานที่จัดงานศพ"
-                  />
-                ) : (
-                  // Street View
-                  <div className="h-96 bg-gray-100 flex flex-col">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!4v1000000000000!6m8!1m7!1sCAoSLEFGMVFpcE1xRnJ5M0lxMVRSeGF6RXNNb3Q2Q0NjODhyYW1FcmdKNkFmX2JX!2m2!1d16.322977!2d103.484449!3f0!4f0!5f0.7820865974627469"
-                      width="100%"
-                      height="300"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Street View - สถานที่จัดงานศพ"
-                    />
-                    <div className="p-3 bg-white">
-                      <p className="text-sm text-gray-600">
-                        🗺️ มุมมองจากถนน - สถานที่จัดงาน
-                      </p>
+                  ) : (
+                    <div className="relative">
+                      <div className="relative h-96 rounded-lg overflow-hidden">
+                        <Image
+                          src={villageMapUrl}
+                          alt="แผนที่หมู่บ้าน"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <button
+                        onClick={() => setVillageMapUrl('')}
+                        className="absolute top-2 right-2 bg-red-600 text-white w-8 h-8 rounded-full hover:bg-red-700 transition-colors flex items-center justify-center"
+                      >
+                        ✕
+                      </button>
                     </div>
+                  )}
+                  
+                  {/* จุดสำคัญในแผนที่ */}
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-800 mb-2 flex items-center">
+                      <span className="mr-2">📍</span>
+                      จุดสำคัญในหมู่บ้าน
+                    </h4>
+                    <ul className="text-sm text-gray-600 space-y-1">
+                      <li>• บ้านคอมวง (สถานที่จัดงาน) 📍</li>
+                      <li>• บ้านสีสุก (ทางเข้าหมู่บ้าน)</li>
+                      <li>• บ้านนาสีมวล (ทางออกหมู่บ้าน)</li>
+                      <li>• วัดบ้านสีสุก (วัดประจำหมู่บ้าน)</li>
+                      <li>• ที่จอดรถ (บริเวณบ้านคอมวง)</li>
+                      <li>• ร้านค้า/ร้านอาหาร (ใกล้วัด)</li>
+                    </ul>
                   </div>
-                )}
+                </div>
               </div>
+            </div>
 
+            {/* Google Maps */}
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <h2 className="text-2xl font-bold mb-4 text-gray-800 flex items-center">
+                <span className="mr-2">🗺️</span>
+                Google Maps
+              </h2>
+              
+              <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d967.8!2d103.484449!3d16.322977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z16Phn4Tn4Z6G4Z-A4Z-E4Z6Z4Z6K4Z6c4Z-N4Z6G4Z6K4Z6Z4Z-A4Z6B4Z-E4Z6Z!5e0!3m2!1sen!2sth!4v1000000000000!5m2!1sen!2sth"
+                  width="100%"
+                  height="384"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Google Maps - สถานที่จัดงานศพ"
+                />
+              </div>
+              
               {/* Navigation Button */}
               <div className="mt-4 text-center">
                 <button
@@ -241,6 +196,34 @@ export default function FuneralPage() {
               </div>
             </div>
 
+            {/* Street View */}
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <h2 className="text-2xl font-bold mb-4 text-gray-800 flex items-center">
+                <span className="mr-2">📷</span>
+                มุมมองจากถนน
+              </h2>
+              
+              <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+                <div className="h-96 bg-gray-100 flex flex-col">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!4v1000000000000!6m8!1m7!1sCAoSLEFGMVFpcE1xRnJ5M0lxMVRSeGF6RXNNb3Q2Q0NjODhyYW1FcmdKNkFmX2JX!2m2!1d16.322977!2d103.484449!3f0!4f0!5f0.7820865974627469"
+                    width="100%"
+                    height="300"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Street View - สถานที่จัดงานศพ"
+                  />
+                  <div className="p-3 bg-white">
+                    <p className="text-sm text-gray-600">
+                      🗺️ มุมมองจากถนน - สถานที่จัดงาน
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Location Info */}
             <div className="bg-white rounded-lg shadow-md p-6">
               <h3 className="text-xl font-bold mb-4 text-gray-800">
@@ -249,7 +232,7 @@ export default function FuneralPage() {
               <div className="space-y-3">
                 <div className="flex items-center">
                   <span className="text-red-600 mr-3">📍</span>
-                  <span>125 หมู่ 8 บ้านคอมวง ตำบลโนนศิลาเลิง อำเภอชนบท จังหวัดกาฬสินธุ์ 46130</span>
+                  <span>125 หมู่ 8 บ้านคอมวง ตำบลโนนศิลาเลิง อำเภอฆ้องชัย จังหวัดกาฬสินธุ์ 46130</span>
                 </div>
                 <div className="flex items-center">
                   <span className="text-blue-600 mr-3">🗺️</span>
@@ -319,7 +302,7 @@ export default function FuneralPage() {
                       </div>
                       <div className="text-right">
                         <p className="text-sm text-blue-600">
-                          📞 {host.phone}
+                          {host.phone && <span>📞 {host.phone}</span>}
                         </p>
                       </div>
                     </div>
