@@ -20,16 +20,10 @@ export default function FuneralPage() {
   ]
 
   const hostList = [
-    { name: 'นายสมศักดิ์ ใจดี', relation: 'บุตรชาย', phone: '081-234-5678' },
-    { name: 'นางสาวมาลี สุขใจ', relation: 'บุตรสาว', phone: '082-345-6789' },
-    { name: 'นายพิชัย รักดี', relation: 'หลานชาย', phone: '083-456-7890' },
-    { name: 'นางรำไพ จิตรดี', relation: 'หลานสาว', phone: '084-567-8901' },
-    { name: 'นายสมชาย ใจงาม', relation: 'ญาติ', phone: '085-678-9012' },
-    { name: 'นางสุพิน ดีใจ', relation: 'เพื่อนบ้าน', phone: '086-789-0123' },
-    { name: 'นายชาญ มีสุข', relation: 'ประธานหมู่บ้าน', phone: '087-890-1234' },
-    { name: 'นางนวล สุขสันต์', relation: 'ผู้ใหญ่บ้าน', phone: '088-901-2345' },
-    { name: 'นายอำนาจ ใจดี', relation: 'กรรมการหมู่บ้าน', phone: '089-012-3456' },
-    { name: 'นางสิริ รักแท้', relation: 'อาสาสมัคร', phone: '090-123-4567' }
+    { name: 'อาจารย์สมจิต - คุณเฉลิมชัย  เขตอนันต์', relation: 'บุตรสาว - บุตรเขย', phone: '081-234-5678' },
+    { name: 'คุณโผน - คุณปันทิพย์  ภานุรักษ์', relation: 'บุตรชาย - บุตรสะใภ้', phone: '082-345-6789' },
+    { name: 'ดร.วีระพน - ดร.เดือนเพ็ญ  ภานุรักษ์', relation: 'บุตรชาย - บุตรสะใภ้', phone: '083-456-7890' },
+    { name: 'พร้อมด้วยหลาน ๆ และญาติพี่น้องทุกคน', relation: '- เจ้าภาพ -', phone: '084-567-8901' }
   ]
 
   const handleDirections = () => {
@@ -110,21 +104,7 @@ export default function FuneralPage() {
                           </div>
                         </div>
                       </div>
-                      <div className="mt-2 text-center">
-                        <label 
-                          htmlFor="map-upload" 
-                          className="inline-block bg-blue-600 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-700 transition-colors text-sm"
-                        >
-                          📤 เปลี่ยนแผนที่หมู่บ้าน
-                        </label>
-                        <input
-                          id="map-upload"
-                          type="file"
-                          accept="image/*"
-                          onChange={handleImageUpload}
-                          className="hidden"
-                        />
-                      </div>
+                      
                     </div>
                   ) : (
                     <div className="relative">
@@ -145,21 +125,7 @@ export default function FuneralPage() {
                     </div>
                   )}
                   
-                  {/* จุดสำคัญในแผนที่ */}
-                  <div className="bg-gray-50 rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-800 mb-2 flex items-center">
-                      <span className="mr-2">📍</span>
-                      จุดสำคัญในหมู่บ้าน
-                    </h4>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>• บ้านคอมวง (สถานที่จัดงาน) 📍</li>
-                      <li>• บ้านสีสุก (ทางเข้าหมู่บ้าน)</li>
-                      <li>• บ้านนาสีมวล (ทางออกหมู่บ้าน)</li>
-                      <li>• วัดบ้านสีสุก (วัดประจำหมู่บ้าน)</li>
-                      <li>• ที่จอดรถ (บริเวณบ้านคอมวง)</li>
-                      <li>• ร้านค้า/ร้านอาหาร (ใกล้วัด)</li>
-                    </ul>
-                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -236,8 +202,19 @@ export default function FuneralPage() {
                 </div>
                 <div className="flex items-center">
                   <span className="text-blue-600 mr-3">🗺️</span>
-                  <span>พิกัด: 16°19&apos;22.7&quot;N 103°29&apos;04.0&quot;E</span>
+                  <span>พิกัด: 
+                  <a 
+                    href="https://www.google.com/maps/place/16%C2%B019%2722.7%22N+103%C2%B029%2704.0%22E/@16.32204,103.4820028,17z/data=!4m4!3m3!8m2!3d16.322977!4d103.484449?entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors"
+                  >
+                    16°19&apos;22.7&quot;N 103°29&apos;04.0&quot;E
+                  </a>
+                  
+                  </span>
                 </div>
+                
                 <div className="flex items-center">
                   <span className="text-blue-600 mr-3">🕐</span>
                   <span>เวลา: 08:00 - 17:00 น.</span>
@@ -300,11 +277,7 @@ export default function FuneralPage() {
                           {host.relation}
                         </p>
                       </div>
-                      <div className="text-right">
-                        <p className="text-sm text-blue-600">
-                          {host.phone && <span>📞 {host.phone}</span>}
-                        </p>
-                      </div>
+                     
                     </div>
                   </div>
                 ))}
