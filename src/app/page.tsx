@@ -221,7 +221,7 @@ export default function FuneralPage() {
                 </div>
                 <div className="flex items-center">
                   <span className="text-green-600 mr-3">📞</span>
-                  <span>โทร: 081-XXX-XXXX (ติดต่อเจ้าภาพ)</span>
+                  <span>โทร: 081-238-7648 (ติดต่อเจ้าภาพ)</span>
                 </div>
               </div>
             </div>
